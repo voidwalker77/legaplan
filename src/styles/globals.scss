@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &::before,
+    &::after {
+        box-sizing: inherit;
+    }
+}
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+html,
+body,
+#__next {
+    height: 100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #fafafa;
+}
