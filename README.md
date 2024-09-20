@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sobre o Projeto
 
-## Getting Started
+Este projeto faz parte do processo seletivo para a vaga de desenvolvedor Jr na empresa **Legaplan**.
 
-First, run the development server:
+## Tecnologias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- TypeScript
+- Next.js
+- ESLint
+- Prettier
+- SCSS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Comandos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **dev**: Executa a aplicação em `localhost:3000`.
+- **build**: Cria a build do projeto.
+- **start**: Inicia um servidor simples com o código de produção.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Como Rodar este Projeto
 
-## Learn More
+Para clonar e executar este aplicativo, você precisará de **Git** e **Node.js** instalados em seu computador.
 
-To learn more about Next.js, take a look at the following resources:
+### Rodando a Aplicação
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Instale as dependências:
+    ```bash
+    $ yarn install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Execute a aplicação em desenvolvimento:
+    ```bash
+    $ yarn dev
+    ```
 
-## Deploy on Vercel
+3. O servidor iniciará na porta `3000` - acesse [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Hospedagem
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Você pode visualizar o projeto através deste link: [Focal Point](https://legaplan-focalpoint.vercel.app/)
