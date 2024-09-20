@@ -1,11 +1,6 @@
 import { FiTrash } from 'react-icons/fi'
 import styles from './styles.module.scss'
-
-interface TaskItemProps {
-    task: { id: number; title: string; completed: boolean }
-    onToggle: (id: number) => void
-    onDelete: (task: { id: number; title: string; completed: boolean }) => void
-}
+import { TaskItemProps } from 'interfaces/components/taskItem'
 
 const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onDelete }) => {
     return (

@@ -7,7 +7,7 @@ const NotFoundPage = () => {
     const router = useRouter()
 
     const handleRedirect = () => {
-        router.push('/home')
+        router.push('/home-tarefas')
     }
 
     return (

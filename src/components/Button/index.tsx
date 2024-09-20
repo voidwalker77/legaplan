@@ -8,7 +8,7 @@ const Button: React.FC<ButtonProps> = ({
     width,
     height,
     backgroundColor,
-    color
+    color,
 }) => {
     const isGradient = backgroundColor?.includes('linear-gradient')
 

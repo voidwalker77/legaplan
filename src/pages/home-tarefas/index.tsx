@@ -6,6 +6,7 @@ import Button from 'components/Button'
 import TaskList from '../../components/TaskList'
 import TaskModal from '../../components/TaskModal'
 import { Task } from 'interfaces/components/task'
+import { getCurrentDate } from 'utils/getCurrentDate'
 
 export default function MainPage() {
     const [tasks, setTasks] = useState<Task[]>([])
@@ -13,6 +14,7 @@ export default function MainPage() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [modalType, setModalType] = useState<'create' | 'delete'>('create')
     const [taskToDelete, setTaskToDelete] = useState<Task | null>(null)
+    const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(() => {
         const storedTasks = localStorage.getItem('tasks')
@@ -39,11 +41,15 @@ export default function MainPage() {
     const closeModal = () => {
         setIsModalOpen(false)
         setTaskTitle('')
+        setErrorMessage('')
         setTaskToDelete(null)
     }
 
     const addTask = () => {
-        if (taskTitle.trim() === '') return
+        if (taskTitle.trim() === '') {
+            setErrorMessage('Por favor, digite um título para a tarefa.')
+            return
+        }
         const newTask: Task = {
             id: Date.now(),
             title: taskTitle,
@@ -85,7 +91,7 @@ export default function MainPage() {
                 </div>
 
                 <p className={styles.headerPhrase}>
-                    Segunda, 01 de dezembro de 2025
+                    {getCurrentDate()}
                 </p>
             </header>
 
@@ -113,9 +119,13 @@ export default function MainPage() {
                     modalType === 'create' ? 'Nova tarefa' : 'Excluir tarefa'
                 }
                 value={taskTitle}
-                onChange={(e) => setTaskTitle(e.target.value)}
+                onChange={(e) => {
+                    setTaskTitle(e.target.value)
+                    setErrorMessage('')
+                }}
                 onConfirm={modalType === 'create' ? addTask : confirmDeleteTask}
                 onClose={closeModal}
+                errorMessage={errorMessage}
             />
         </main>
     )

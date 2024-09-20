@@ -1,16 +1,7 @@
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import Button from 'components/Button'
-
-interface TaskModalProps {
-    isOpen: boolean
-    type: 'create' | 'delete'
-    title: string
-    value?: string
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-    onConfirm: () => void
-    onClose: () => void
-}
+import { TaskModalProps } from 'interfaces/components/taskModal'
 
 const TaskModal: React.FC<TaskModalProps> = ({
     isOpen,
@@ -20,6 +11,7 @@ const TaskModal: React.FC<TaskModalProps> = ({
     onChange,
     onConfirm,
     onClose,
+    errorMessage,
 }) => {
     const [buttonWidth, setButtonWidth] = useState('185px')
 
@@ -59,6 +51,9 @@ const TaskModal: React.FC<TaskModalProps> = ({
                                 className={styles.modalInput}
                             />
                         </div>
+                        {errorMessage && (
+                            <p className={styles.errorMessage}>{errorMessage}</p>
+                        )}
                         <div className={styles.modalButtons}>
                             <Button
                                 title="Cancelar"

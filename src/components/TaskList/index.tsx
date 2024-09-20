@@ -1,12 +1,8 @@
+import { TaskListProps } from 'interfaces/components/taskList'
 import TaskItem from '../TaskItem'
 import styles from './styles.module.scss'
 
-interface TaskListProps {
-    tasks: { id: number; title: string; completed: boolean }[]
-    onToggle: (id: number) => void
-    onDelete: (task: { id: number; title: string; completed: boolean }) => void
-    title: string
-}
+
 
 const TaskList: React.FC<TaskListProps> = ({
     tasks,
@@ -15,7 +11,7 @@ const TaskList: React.FC<TaskListProps> = ({
     title,
 }) => {
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.mainCardTitle}>{title}</div>
             <div className={styles.mainCardBody}>
                 <div className={styles.tasks}>
