@@ -1,6 +1,6 @@
 # Sobre o Projeto
 
-Este projeto faz parte do processo seletivo para a vaga de desenvolvedor Jr. na empresa **Legaplan**.
+Este projeto faz parte do processo seletivo para a vaga de desenvolvedor Jr na empresa **Legaplan**.
 
 ## Tecnologias
 
