@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Logo from '../images/logo.svg'
 import styles from './styles.module.scss'
@@ -11,11 +11,35 @@ export default function MainPage() {
     const [tasks, setTasks] = useState<Task[]>([])
     const [taskTitle, setTaskTitle] = useState('')
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [modalType, setModalType] = useState<'create' | 'delete'>('create')
+    const [taskToDelete, setTaskToDelete] = useState<Task | null>(null)
 
-    const openModal = () => setIsModalOpen(true)
+    useEffect(() => {
+        const storedTasks = localStorage.getItem('tasks')
+        if (storedTasks) {
+            setTasks(JSON.parse(storedTasks))
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks))
+    }, [tasks])
+
+    const openCreateModal = () => {
+        setModalType('create')
+        setIsModalOpen(true)
+    }
+
+    const openDeleteModal = (task: Task) => {
+        setTaskToDelete(task)
+        setModalType('delete')
+        setIsModalOpen(true)
+    }
+
     const closeModal = () => {
         setIsModalOpen(false)
         setTaskTitle('')
+        setTaskToDelete(null)
     }
 
     const addTask = () => {
@@ -37,8 +61,11 @@ export default function MainPage() {
         )
     }
 
-    const deleteTask = (id: number) => {
-        setTasks(tasks.filter((task) => task.id !== id))
+    const confirmDeleteTask = () => {
+        if (taskToDelete) {
+            setTasks(tasks.filter((task) => task.id !== taskToDelete.id))
+            closeModal()
+        }
     }
 
     return (
@@ -51,9 +78,12 @@ export default function MainPage() {
                     width={100}
                     className={styles.logo}
                 />
-                <h2 className={styles.headerTitle}>
-                    Bem-vindo de volta, Marcus
-                </h2>
+                <div className={styles.centerText}>
+                    <h2 className={styles.headerTitle}>
+                        Bem-vindo de volta, Marcus
+                    </h2>
+                </div>
+
                 <p className={styles.headerPhrase}>
                     Segunda, 01 de dezembro de 2025
                 </p>
@@ -63,25 +93,28 @@ export default function MainPage() {
                 <TaskList
                     tasks={tasks.filter((task) => !task.completed)}
                     onToggle={toggleTaskCompletion}
-                    onDelete={deleteTask}
+                    onDelete={openDeleteModal}
                     title="Suas tarefas de hoje"
                 />
-                
+
                 <TaskList
                     tasks={tasks.filter((task) => task.completed)}
                     onToggle={toggleTaskCompletion}
-                    onDelete={deleteTask}
+                    onDelete={openDeleteModal}
                     title="Tarefas finalizadas"
                 />
             </div>
-            <Button title="Adicionar nova tarefa" onClick={openModal} />
+            <Button title="Adicionar nova tarefa" onClick={openCreateModal} />
 
             <TaskModal
                 isOpen={isModalOpen}
-                title="Nova tarefa"
+                type={modalType}
+                title={
+                    modalType === 'create' ? 'Nova tarefa' : 'Excluir tarefa'
+                }
                 value={taskTitle}
                 onChange={(e) => setTaskTitle(e.target.value)}
-                onAdd={addTask}
+                onConfirm={modalType === 'create' ? addTask : confirmDeleteTask}
                 onClose={closeModal}
             />
         </main>

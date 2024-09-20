@@ -17,6 +17,13 @@
     border-bottom: 1px solid $mainBorder-color;
     margin-bottom: 4rem;
     width: 92%;
+    position: relative;
+}
+
+.centerText {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .logo {

@@ -59,4 +59,18 @@
     font-weight: 400;
     line-height: 19.36px;
     letter-spacing: -0.02em;
+    outline: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.confirmText {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: -0.02em;
+    color: $headerPhrase-color;
 }

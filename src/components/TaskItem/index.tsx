@@ -1,10 +1,10 @@
-import styles from './styles.module.scss'
 import { FiTrash } from 'react-icons/fi'
+import styles from './styles.module.scss'
 
 interface TaskItemProps {
     task: { id: number; title: string; completed: boolean }
     onToggle: (id: number) => void
-    onDelete: (id: number) => void
+    onDelete: (task: { id: number; title: string; completed: boolean }) => void
 }
 
 const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onDelete }) => {
@@ -35,13 +35,16 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onDelete }) => {
                 </span>
             </div>
 
-            <FiTrash
-                className={styles.deleteIcon}
-                onClick={(e) => {
-                    e.stopPropagation()
-                    onDelete(task.id)
-                }}
-            />
+            <div>
+                <FiTrash
+                    className={styles.deleteIcon}
+                    onClick={(e) => {
+                        e.stopPropagation()
+                        onDelete(task)
+                    }}
+                    style={{ width: '24px', height: '24px' }}
+                />
+            </div>
         </div>
     )
 }

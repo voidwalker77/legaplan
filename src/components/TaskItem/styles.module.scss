@@ -45,13 +45,14 @@
 
 .taskItem {
     width: 38.6rem;
-    height: 5.6rem;
+
     border-radius: 0.8rem;
     border: 2px dashed $mainBorder-color;
     padding: 1.6rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.6rem;
     cursor: pointer;
 
     &:hover {
@@ -59,6 +60,14 @@
         border-color: $input-Background;
         transition: background-color 0.3s, border-color 0.3s;
     }
+}
+
+.taskTitle {
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    word-break: break-all;
+    line-height: 19.36px;
 }
 
 .completed {
