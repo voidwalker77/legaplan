@@ -2,26 +2,39 @@ import TaskItem from '../TaskItem'
 import styles from './styles.module.scss'
 
 interface TaskListProps {
-    tasks: { id: number, title: string, completed: boolean }[]
+    tasks: { id: number; title: string; completed: boolean }[]
     onToggle: (id: number) => void
     onDelete: (task: { id: number; title: string; completed: boolean }) => void
     title: string
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, onToggle, onDelete, title }) => {
+const TaskList: React.FC<TaskListProps> = ({
+    tasks,
+    onToggle,
+    onDelete,
+    title,
+}) => {
     return (
         <div>
             <div className={styles.mainCardTitle}>{title}</div>
             <div className={styles.mainCardBody}>
                 <div className={styles.tasks}>
-                    {tasks.map(task => (
-                        <TaskItem
-                            key={task.id}
-                            task={task}
-                            onToggle={onToggle}
-                            onDelete={onDelete}
-                        />
-                    ))}
+                    {tasks.length === 0 ? (
+                        <p className={styles.noTasksMessage}>
+                            {title === 'Suas tarefas de hoje'
+                                ? 'Nenhuma tarefa para fazer.'
+                                : 'Nenhuma tarefa finalizada.'}
+                        </p>
+                    ) : (
+                        tasks.map((task) => (
+                            <TaskItem
+                                key={task.id}
+                                task={task}
+                                onToggle={onToggle}
+                                onDelete={onDelete}
+                            />
+                        ))
+                    )}
                 </div>
             </div>
         </div>
