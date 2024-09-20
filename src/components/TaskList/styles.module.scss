@@ -1,0 +1,14 @@
+@import '../../styles/settings.module.scss';
+
+.mainCardTitle {
+    margin-bottom: 2.4rem;
+    color: $headerPhrase-color;
+    text-align: center;
+
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}

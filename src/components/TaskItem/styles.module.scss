@@ -1,0 +1,71 @@
+@import '../../styles/settings.module.scss';
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    input {
+        display: none;
+    }
+
+    .checkmark {
+        width: 2.4rem;
+        height: 2.4rem;
+        border: 1px solid $secondaryBorder-color;
+        border-radius: 0.4rem;
+        position: relative;
+        background-color: transparent;
+    }
+
+    input:checked + .checkmark {
+        background-color: $checkbox-Background;
+        border-color: $mainBlue;
+    }
+
+    input:checked + .checkmark::after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 8px;
+        width: 5px;
+        height: 10px;
+        border: solid $mainBlue;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+}
+
+.taskItem {
+    width: 38.6rem;
+    height: 5.6rem;
+    border-radius: 0.8rem;
+    border: 2px dashed $mainBorder-color;
+    padding: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $input-Background;
+        border-color: $input-Background;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+}
+
+.completed {
+    text-decoration: line-through;
+    color: $headerPhrase-color;
+}
+
+.deleteIcon {
+    color: $secondaryBorder-color;
+}

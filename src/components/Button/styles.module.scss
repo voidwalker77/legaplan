@@ -1,0 +1,18 @@
+@import '../../styles/settings.module.scss';
+
+.button {
+    font-size: 1.6rem;
+    background: linear-gradient(
+        90deg,
+        var(--buttonColor-1),
+        var(--buttonColor-2)
+    );
+    outline: none;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 1.6rem 2.4rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
