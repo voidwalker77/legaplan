@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({
             className={styles.button}
             onClick={onClick}
             style={{
-                width: width ?? '250px',
+                width: width ?? width,
                 height: height ?? '51px',
                 background:
                     backgroundColor ??

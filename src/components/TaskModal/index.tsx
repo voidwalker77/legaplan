@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import Button from 'components/Button'
 
@@ -20,15 +21,34 @@ const TaskModal: React.FC<TaskModalProps> = ({
     onConfirm,
     onClose,
 }) => {
+    const [buttonWidth, setButtonWidth] = useState('185px')
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setButtonWidth('100%')
+            } else {
+                setButtonWidth('185px')
+            }
+        }
+
+        handleResize()
+
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
+
     if (!isOpen) return null
 
     return (
         <div className={styles.modal}>
             <div className={styles.modalContent}>
-                <h2 className={styles.modalTitle}>{title}</h2>
-
                 {type === 'create' && (
                     <div className={styles.container}>
+                        <h2 className={styles.modalTitle}>{title}</h2>
                         <div className={styles.labelContainer}>
                             Título
                             <input
@@ -43,14 +63,14 @@ const TaskModal: React.FC<TaskModalProps> = ({
                             <Button
                                 title="Cancelar"
                                 onClick={onClose}
-                                width="185px"
                                 backgroundColor="#E7EEFB"
                                 color="#000"
+                                width={buttonWidth}
                             />
                             <Button
                                 title="Adicionar"
                                 onClick={onConfirm}
-                                width="185px"
+                                width={buttonWidth}
                             />
                         </div>
                     </div>
@@ -58,6 +78,7 @@ const TaskModal: React.FC<TaskModalProps> = ({
 
                 {type === 'delete' && (
                     <div className={styles.container}>
+                        <h2 className={styles.modalTitle}>{title}</h2>
                         <p className={styles.confirmText}>
                             Tem certeza que deseja excluir esta tarefa?
                         </p>
@@ -65,15 +86,15 @@ const TaskModal: React.FC<TaskModalProps> = ({
                             <Button
                                 title="Cancelar"
                                 onClick={onClose}
-                                width="185px"
                                 backgroundColor="#E7EEFB"
                                 color="#000"
+                                width={buttonWidth}
                             />
                             <Button
                                 title="Deletar"
                                 onClick={onConfirm}
-                                width="185px"
                                 backgroundColor="linear-gradient(90deg, #D30707, #F05353)"
+                                width={buttonWidth}
                             />
                         </div>
                     </div>

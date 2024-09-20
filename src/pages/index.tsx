@@ -104,7 +104,7 @@ export default function MainPage() {
                     title="Tarefas finalizadas"
                 />
             </div>
-            <Button title="Adicionar nova tarefa" onClick={openCreateModal} />
+            <Button title="Adicionar nova tarefa" onClick={openCreateModal} width='250px'/>
 
             <TaskModal
                 isOpen={isModalOpen}
