@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import Logo from '../images/logo.svg'
+import Logo from '../../images/logo.svg'
 import styles from './styles.module.scss'
 import Button from 'components/Button'
-import TaskList from '../components/TaskList'
-import TaskModal from '../components/TaskModal'
+import TaskList from '../../components/TaskList'
+import TaskModal from '../../components/TaskModal'
 import { Task } from 'interfaces/components/task'
 
 export default function MainPage() {

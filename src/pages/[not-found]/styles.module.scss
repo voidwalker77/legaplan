@@ -1,0 +1,22 @@
+@import '../../styles/settings.module.scss';
+
+.notFoundContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: $input-Background;
+    color: $mainBlue;
+
+    h1 {
+        font-size: 6rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+}
