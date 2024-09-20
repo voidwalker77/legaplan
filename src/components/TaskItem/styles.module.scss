@@ -45,7 +45,6 @@
 
 .taskItem {
     width: 38.6rem;
-
     border-radius: 0.8rem;
     border: 2px dashed $mainBorder-color;
     padding: 1.6rem;
@@ -59,6 +58,10 @@
         background-color: $input-Background;
         border-color: $input-Background;
         transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
     }
 }
 

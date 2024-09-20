@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     font-size: 2rem;
+    padding-bottom: 2rem;
 }
 
 .header {
@@ -17,12 +18,27 @@
     margin-bottom: 4rem;
     width: 92%;
     position: relative;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: start;
+        justify-content: start;
+        width: 86%;
+        gap: 0.8rem;
+    }
 }
 
 .centerText {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+
+    @media (max-width: 768px) {
+        position: static;
+        left: initial;
+        transform: translateX(0%);
+    }
 }
 
 .logo {
@@ -32,11 +48,26 @@
 
 .headerTitle {
     font-size: 2.4rem;
+
+    @media (max-width: 768px) {
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 19.36px;
+        letter-spacing: -0.02em;
+    }
 }
 
 .headerPhrase {
     font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 19.36px;
+    letter-spacing: -0.02em;
     color: $headerPhrase-color;
+    word-break: break-all;
+
+    @media (max-width: 900px) {
+        font-size: 1.4rem;
+    }
 }
 
 .mainCard {
@@ -49,6 +80,10 @@
     padding: 3.2rem;
     gap: 2.4rem;
     margin-bottom: 2.4rem;
+
+    @media (max-width: 768px) {
+        width: 88%;
+    }
 }
 
 .mainCardTitle {
