@@ -7,8 +7,7 @@
     "build": "yarn lint --fix && next build",
     "start": "yarn lint --fix && next start",
     "lint": "next lint",
-    "cypress:open": "cypress open",
-    "vercel-build": "yarn install --production && yarn build"
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "next": "14.2.12",
@@ -18,19 +17,16 @@
     "sass": "^1.79.1"
   },
   "devDependencies": {
-    "cypress": "^13.14.2",
     "@next/eslint-plugin-next": "^14.2.13",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "prettier": "^3.3.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "cypress": "^13.14.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.12",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
     "typescript": "^5"
-  },
-  "engines": {
-    "node": "18.x"
-    }
+  }
 }
