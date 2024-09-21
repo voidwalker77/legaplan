@@ -79,7 +79,7 @@ export default function MainPage() {
             <header className={styles.header}>
                 <Image
                     src={Logo}
-                    alt="logo do site"
+                    alt="Logo da Focal Point"
                     height={100}
                     width={100}
                     className={styles.logo}
