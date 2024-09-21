@@ -16,7 +16,10 @@ const TaskList: React.FC<TaskListProps> = ({
             <div className={styles.mainCardBody}>
                 <div className={styles.tasks} data-cy="tasks">
                     {tasks.length === 0 ? (
-                        <p className={styles.noTasksMessage} data-cy="noTasksMessage">
+                        <p
+                            className={styles.noTasksMessage}
+                            data-cy="noTasksMessage"
+                        >
                             {title === 'Suas tarefas de hoje'
                                 ? 'Nenhuma tarefa para fazer.'
                                 : 'Nenhuma tarefa finalizada.'}

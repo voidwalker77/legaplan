@@ -90,9 +90,7 @@ export default function MainPage() {
                     </h2>
                 </div>
 
-                <p className={styles.headerPhrase}>
-                    {getCurrentDate()}
-                </p>
+                <p className={styles.headerPhrase}>{getCurrentDate()}</p>
             </header>
 
             <div className={styles.mainCard}>
@@ -110,7 +108,11 @@ export default function MainPage() {
                     title="Tarefas finalizadas"
                 />
             </div>
-            <Button title="Adicionar nova tarefa" onClick={openCreateModal} width='250px'/>
+            <Button
+                title="Adicionar nova tarefa"
+                onClick={openCreateModal}
+                width="250px"
+            />
 
             <TaskModal
                 isOpen={isModalOpen}

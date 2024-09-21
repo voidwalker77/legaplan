@@ -14,7 +14,11 @@ const NotFoundPage = () => {
         <div className={styles.notFoundContainer}>
             <h1>404</h1>
             <p>Página não encontrada</p>
-            <Button title="Voltar para Home" onClick={handleRedirect} width='250px'/>
+            <Button
+                title="Voltar para Home"
+                onClick={handleRedirect}
+                width="250px"
+            />
         </div>
     )
 }

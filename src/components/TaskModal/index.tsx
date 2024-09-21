@@ -56,7 +56,10 @@ const TaskModal: React.FC<TaskModalProps> = ({
                                 {errorMessage}
                             </p>
                         )}
-                        <div className={styles.modalButtons} data-cy="addtask-modalbutton">
+                        <div
+                            className={styles.modalButtons}
+                            data-cy="addtask-modalbutton"
+                        >
                             <Button
                                 title="Cancelar"
                                 onClick={onClose}
@@ -79,7 +82,10 @@ const TaskModal: React.FC<TaskModalProps> = ({
                         <p className={styles.confirmText}>
                             Tem certeza que deseja excluir esta tarefa?
                         </p>
-                        <div className={styles.modalButtons} data-cy="removeTask-modalbutton">
+                        <div
+                            className={styles.modalButtons}
+                            data-cy="removeTask-modalbutton"
+                        >
                             <Button
                                 title="Cancelar"
                                 onClick={onClose}
