@@ -9,12 +9,15 @@ Este projeto faz parte do processo seletivo para a vaga de desenvolvedor Jr na e
 - ESLint
 - Prettier
 - SCSS
+- Cypress
 
 ## Comandos
 
-- **dev**: Executa a aplicação em `localhost:3000`.
-- **build**: Cria a build do projeto.
-- **start**: Inicia um servidor simples com o código de produção.
+- ``dev``: Executa a aplicação em `localhost:3000`.
+- ``build``: Cria a build do projeto.
+- ``lint``: Executa o Linter em todos os componentes e páginas.
+- ``start``: Inicia um servidor simples com o código de produção.
+- ``cypress:open``: Abre a interface do Cypress para testes de ponta a ponta.
 
 ## Como Rodar este Projeto
 
